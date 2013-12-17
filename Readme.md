@@ -14,7 +14,7 @@ end
 compose('some/path')
 # => { path: 'some/path', opts: {} }
 
-compose('some/path', { opt: 'val' } )
+compose('some/path', opt: 'val')
 # => { path: 'some/path', opts: { opt: 'val' } }
 
 compose(opt: 'val')
