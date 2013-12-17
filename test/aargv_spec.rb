@@ -43,5 +43,15 @@ describe Aargv do
     Aargv.normalize([v1, v2], str: String, sym: [Symbol, :def]).must_equal expected_ret
   end
 
+  it "ignores values when no default" do
+    v1 = 'foo'
+
+    expected_ret = {
+      str: v1
+    }
+
+    Aargv.normalize([v1], str: String, sym: Symbol).must_equal expected_ret
+  end
+
 end
 

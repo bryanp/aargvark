@@ -1,9 +1,10 @@
 class Aargv
   def self.normalize(args, opts)
-    Hash[opts.dup.map { |opt, opt_v|
-      type, default = opt_v
-      [opt, value_of_type(args, type) || default]
-    }]
+    Hash[opts.map { |opt_name, opt_opts|
+      type, default = opt_opts
+
+      [opt_name, value_of_type(args, type) || default]
+    }.reject { |pair| pair[1].nil? }]
   end
 
   def self.value_of_type(values, type)
